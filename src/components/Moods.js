@@ -51,13 +51,12 @@ export default function Moods() {
     fontSize: '1.5em',
     marginBottom: '0.3em',
     // color: 'crimson', /* STEP 2 */
-    color: ((mood === happyMood) ? "royalblue" : "crimson") //this works, but it isn't rendering
+    color: ((mood === happyMood) ? "royalblue" : "crimson")
   };
-  // console.log(style);
-
+  
   return (
     <div className='widget-moods container'>
-      <h2>Moods</h2><div>{mood}</div> {/* STEP 3 */}
+      <h2>Moods</h2><div style = {style}>{mood}</div> {/* STEP 3 */}
       <div>
         <button id='makeHappy' onClick={() => setMood(happyMood)}>Make Happy</button>
         <button id='makeSad' onClick={() => setMood(sadMood)}>Make Sad</button>
