@@ -40,14 +40,16 @@ import { render } from 'react-dom';
 export default function Input() {
   /* STEP 1 */
   const [inputValue, setInputValue] = useState("");
+
   const changeInput = evt => {
     // When the input changes, its whole value can be found inside the event object.
     // Log out the synthetic event object 'evt' and see for yourself.
+    const newInput = evt.target.value;
+    // const newInput = evt.target.textContent;
+    // const { setInputValue(newInput) } //= evt.target;
     // const { value } = evt.target;
-    const newInput = evt.target.textContent;
-    const { setInputValue(newInput) } //= evt.target;
-    // const { value } = evt.target;
-    console.log(evt.target);
+    console.log(evt.target.value);
+    setInputValue(newInput);
 
     /* STEP 4 */
     return inputValue;
@@ -59,16 +61,16 @@ export default function Input() {
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
-    color: ((inputValue <= 10) ? 'royalblue': 'crimson') /* STEP 2 */
+    color: ((inputValue.length <= 10) ? 'royalblue': 'crimson') /* STEP 2 */
   };
 
   return (
     <div className='widget-input container'>
       <h2>Input</h2>
       {/* step 3 */}
-      <div id='output' style={style}>hhhhh</div> {document.querySelector(".output").textContent.toUpperCase()}
+      <div id='output' style={style}>{inputValue.toUpperCase()}</div> {/*SOMEHOW SET INPUT.toUpperCase()}*/}
       <div>
-        <input id='input' type='text' onChange={changeInput} /> {/* STEP 6 */}
+        <input id='input' type='text' onChange={changeInput} value={inputValue}/> {/* STEP 6 */}
         <button id='resetInput' onClick={() => setInputValue("")}>Reset</button>
       </div>
     </div>
