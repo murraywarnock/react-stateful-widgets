@@ -63,13 +63,11 @@ export default function Counter() {
   const reset = () => {
     setCount(0)
   };
-  // let countColor = (count % 2 === 0) ? "royalblue" : "crimson";
-  // console.log(countColor);
+ 
   const style = {
     fontSize: '1.5em',
     marginBottom: '0.3em',
     color: ((count % 2 == 0)? "royalblue" : "crimson")
-    // color: 'royalblue', /* STEP 2 */
   };
 
   return (
